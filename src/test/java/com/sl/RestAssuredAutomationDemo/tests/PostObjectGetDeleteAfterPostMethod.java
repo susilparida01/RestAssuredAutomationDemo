@@ -1,12 +1,13 @@
 package com.sl.RestAssuredAutomationDemo.tests;
 
 import static io.restassured.RestAssured.given;
+
 import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 
 public class PostObjectGetDeleteAfterPostMethod {
-	
+
 	@Test
 	public void testGetObjectsByID() {
 		// please code it here
@@ -19,10 +20,10 @@ public class PostObjectGetDeleteAfterPostMethod {
 				.statusCode(200)
 				.extract()
 				.response();
-		
+
 		System.out.println("Delete /objects/{id} response");
 		getResponse.prettyPrint();
-		
+
 	}
 
 }

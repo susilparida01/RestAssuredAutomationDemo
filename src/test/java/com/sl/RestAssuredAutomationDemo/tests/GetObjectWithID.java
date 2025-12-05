@@ -1,14 +1,14 @@
 package com.sl.RestAssuredAutomationDemo.tests;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 
 public class GetObjectWithID {
-	
+
 	@Test
 	public void testGetObjectsByID() {
 		// please code it here
@@ -22,10 +22,10 @@ public class GetObjectWithID {
 				.body("name", equalTo("Apple iPad Mini 5th Gen"))
 				.extract()
 				.response();
-		
+
 		System.out.println("GET /objects/{ids} response");
 		getResponse.prettyPrint();
-		
+
 	}
 
 }

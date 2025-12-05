@@ -19,7 +19,8 @@
     <testng.version>7.11.0</testng.version>
     <harmcrest.version>3.0</harmcrest.version>
     <jackson.version>3.0.3</jackson.version>
-    <log4j.version>2.25.2</log4j.version>    
+    <log4j.version>2.25.2</log4j.version>
+    <extentreports.version>5.1.1</extentreports.version>   
   </properties>
 
   <dependencies>
@@ -65,5 +66,13 @@
 	    <artifactId>log4j-core</artifactId>
 	    <version>${log4j.version}</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+	<dependency>
+	    <groupId>com.aventstack</groupId>
+	    <artifactId>extentreports</artifactId>
+	    <version>${extentreports.version}</version>
+	</dependency>	
+	
   </dependencies>
 </project>

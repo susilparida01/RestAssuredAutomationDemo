@@ -1,13 +1,13 @@
 package com.sl.RestAssuredAutomationDemo.tests;
 
-import io.restassured.response.Response;
+import static io.restassured.RestAssured.given;
 
-
-import static io.restassured.RestAssured.*;
 import org.testng.annotations.Test;
 
+import io.restassured.response.Response;
+
 public class GetAllObjects {
-	
+
 	@Test
 	public void testGetAllObjectsMethod() {
 		// please code it here
@@ -21,10 +21,10 @@ public class GetAllObjects {
 				//.body("name", equalTo("Apple MacBook Pro 16"))
 				.extract()
 				.response();
-		
+
 		System.out.println("GET /objects/{id} response");
 		getResponse.prettyPrint();
-		
+
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.sl.RestAssuredAutomationDemo.apiTests;
+package com.sl.api.tests;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.anyOf;
@@ -8,41 +8,16 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThan;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-
-public class E2E_Tests {
-
-	@BeforeClass
-	public void setup() {
-		// Base URI for restful-api.dev
-		RestAssured.baseURI = "https://api.restful-api.dev";
-
-		// Enable request/response Logging
-		RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-	}
-
-	/*
-	 * End-to-end CRUD flow:
-	 * 1) POST -> Create Object
-	 * 2) GET  -> Get single object by id and validate
-	 * 3) PUT  -> Update object and validate
-	 * 4) DELETE -> Delete object and validate (204)
-	 *
-	 *  This single class will demonstrate all request type and print response
-	 */
-
-	@Test
-	public void e2e_create_get_update_delete_object() {
-
-
+public class EndToEndObjectFlowTest extends BaseApiTest{
+	
+	@Test(groups = {"e2e"})
+	public void objectLifeCycle_create_get_update_delete() {
+		
 		//1. POST - Create an object
 		String createPayload = """
 				{
@@ -159,8 +134,8 @@ public class E2E_Tests {
 			.time(lessThan(5000L));
 
 		System.out.println("Delete /objects/"+createdId+" response");
-		System.out.println("#####***************##############################");
-
+		System.out.println("#####***************##############################");		
+		
 	}
 
 }

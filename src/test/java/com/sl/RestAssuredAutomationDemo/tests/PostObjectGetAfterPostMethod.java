@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import io.restassured.response.Response;
 
 public class PostObjectGetAfterPostMethod {
-	
+
 	@Test
 	public void testGetObjectsByID() {
 		// please code it here
@@ -22,10 +22,10 @@ public class PostObjectGetAfterPostMethod {
 				.body("name", equalTo("Apple MacBook Pro 19"))
 				.extract()
 				.response();
-		
+
 		System.out.println("GET /objects/{id} response");
 		getResponse.prettyPrint();
-		
+
 	}
 
 }

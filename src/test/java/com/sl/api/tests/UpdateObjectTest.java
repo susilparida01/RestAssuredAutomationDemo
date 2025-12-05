@@ -1,4 +1,4 @@
-package com.sl.RestAssuredAutomationDemo.tests;
+package com.sl.api.tests;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
@@ -9,10 +9,10 @@ import org.testng.annotations.Test;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class PostObjectGetPutAfterPostMethod {
-
+public class UpdateObjectTest extends BaseApiTest{
+	
 	@Test
-	public void testPostObject() {
+	public void verifyUpdateObjectTest() {
 		// please code it here
 		String updatePayload = """
 			{   "name": "Apple MacBook Pro 19",
@@ -27,11 +27,10 @@ public class PostObjectGetPutAfterPostMethod {
 
 		Response updateResponse =
 			given()
-				.baseUri("https://api.restful-api.dev")
 				.contentType(ContentType.JSON)
 				.body(updatePayload)
 			.when()
-				.put("/objects/ff8081819782e69e019ae3af1951698f")
+				.put("/objects/ff8081819782e69e019aedade59606ed")
 			.then()
 				.statusCode(200)
 				.header("Content-Type", containsString("application/json"))
@@ -44,6 +43,6 @@ public class PostObjectGetPutAfterPostMethod {
 		System.out.println("PUT /objects response");
 		updateResponse.prettyPrint();
 
-	}
+	}	
 
 }

@@ -1,7 +1,8 @@
 package com.sl.RestAssuredAutomationDemo.tests;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.annotations.Test;
 
@@ -9,7 +10,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class PostObject {
-	
+
 	@Test
 	public void testPostObject() {
 		// please code it here
@@ -24,7 +25,7 @@ public class PostObject {
 			    }
 			}
 			""";
-		
+
 		Response postResponse =
 			given()
 				.baseUri("https://api.restful-api.dev")
@@ -39,10 +40,10 @@ public class PostObject {
 				.body("data.price", equalTo(22222.22f))
 				.extract()
 				.response();
-		
+
 		System.out.println("POST /objects response");
 		postResponse.prettyPrint();
-		
+
 	}
 
 }
